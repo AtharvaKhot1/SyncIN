@@ -115,7 +115,6 @@ export function SidebarDemo({children}:Readonly<{children:React.ReactNode}>) {
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
             {open ? <Logo /> : <LogoIcon />}
             
-            {/* Create Notebook Button */}
             <button
               onClick={addNotebook}
               className={cn(
@@ -128,7 +127,6 @@ export function SidebarDemo({children}:Readonly<{children:React.ReactNode}>) {
               {open && <span>New Notebook</span>}
             </button>
 
-            {/* Notebooks List */}
             <div className="mt-4 flex flex-col gap-1">
               {notebooks.map((notebook) => (
                 <div key={notebook.id} className="relative">
@@ -184,7 +182,6 @@ export function SidebarDemo({children}:Readonly<{children:React.ReactNode}>) {
                     )}
                   </div>
                   
-                  {/* Color Picker */}
                   {showColorPicker === notebook.id && open && (
                     <div className="ml-6 mt-1 mb-2 p-2 bg-neutral-100 dark:bg-neutral-700 rounded-md">
                       <div className="flex gap-2 flex-wrap">
@@ -203,7 +200,6 @@ export function SidebarDemo({children}:Readonly<{children:React.ReactNode}>) {
                     </div>
                   )}
                   
-                  {/* Sections */}
                   {expandedNotebooks.includes(notebook.id) && open && notebook.sections && (
                     <div className="ml-6 mt-1 flex flex-col gap-1">
                       {notebook.sections.map((section) => (
@@ -261,7 +257,6 @@ export function SidebarDemo({children}:Readonly<{children:React.ReactNode}>) {
             </div>
           </div>
           
-          {/* Trash Bin */}
           <div className="flex flex-col gap-2">
             <Link
               href="/trash"
@@ -313,7 +308,6 @@ export const LogoIcon = () => {
 
 export default SidebarDemo;
 
-// Dummy dashboard component with content
 const Dashboard = () => {
   return (
     <div className="flex flex-1">

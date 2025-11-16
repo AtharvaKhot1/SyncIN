@@ -26,7 +26,6 @@ export function FormattingToolbar() {
   const [highlightColor, setHighlightColor] = useState("#FFFF00");
   const [alignment, setAlignment] = useState<"left" | "center" | "right">("left");
   
-  // Popup states
   const [showFontSizePicker, setShowFontSizePicker] = useState(false);
   const [showFontColorPicker, setShowFontColorPicker] = useState(false);
   const [showHighlightPicker, setShowHighlightPicker] = useState(false);
@@ -35,7 +34,6 @@ export function FormattingToolbar() {
   const fontColorRef = useRef<HTMLDivElement>(null);
   const highlightRef = useRef<HTMLDivElement>(null);
 
-  // Close popups when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (fontSizeRef.current && !fontSizeRef.current.contains(event.target as Node)) {
@@ -61,7 +59,6 @@ export function FormattingToolbar() {
     "#008000", "#FFC0CB", "#A52A2A", "#808080", "#C0C0C0"
   ];
 
-  // Helper function to ensure contentEditable is focused
   const ensureFocus = () => {
     const activeElement = document.activeElement;
     if (!activeElement || activeElement.getAttribute('contenteditable') !== 'true') {
@@ -195,7 +192,6 @@ export function FormattingToolbar() {
         
         const selection = window.getSelection();
         if (!selection || selection.rangeCount === 0) {
-          // No selection, just insert a bullet at cursor
           const ul = document.createElement('ul');
           const li = document.createElement('li');
           li.innerHTML = '<br>';
@@ -206,7 +202,6 @@ export function FormattingToolbar() {
             range.deleteContents();
             range.insertNode(ul);
             
-            // Place cursor inside the li
             const newRange = document.createRange();
             newRange.setStart(li, 0);
             newRange.collapse(true);
@@ -214,7 +209,6 @@ export function FormattingToolbar() {
             selection?.addRange(newRange);
           }
         } else {
-          // Try execCommand first
           try {
             document.execCommand('insertUnorderedList', false);
           } catch (e) {
@@ -270,7 +264,6 @@ export function FormattingToolbar() {
     },
   ];
 
-  // Modify items to handle onClick
   const items = formatItems.map(item => ({
     title: item.title,
     icon: item.icon,
@@ -285,7 +278,6 @@ export function FormattingToolbar() {
         desktopClassName="bg-white dark:bg-neutral-800 shadow-lg border border-neutral-200 dark:border-neutral-700"
       />
       
-      {/* Font Size Picker */}
       {showFontSizePicker && (
         <div 
           ref={fontSizeRef}
@@ -320,7 +312,6 @@ export function FormattingToolbar() {
         </div>
       )}
       
-      {/* Font Color Picker */}
       {showFontColorPicker && (
         <div 
           ref={fontColorRef}
@@ -355,7 +346,6 @@ export function FormattingToolbar() {
         </div>
       )}
       
-      {/* Highlight Color Picker */}
       {showHighlightPicker && (
         <div 
           ref={highlightRef}

@@ -1,12 +1,3 @@
-// export default function Home( ) {
-// return(
-// <main className="">
-// <h1 className="text-2xl text-center">Chai aur code</h1>
-// </main>
-// );
-// }
-
-
 "use client";
 import { useRef, useEffect, useState } from "react";
 import SidebarDemo from "@/components/Sidebaar";
@@ -40,7 +31,6 @@ function ContentArea() {
       <FormattingToolbar />
       <div className="mb-6 mt-4">
         <div className="mb-2 relative inline-block">
-          {/* Hidden span to measure text width */}
           <span
             ref={measureRef}
             className="text-4xl font-normal invisible absolute whitespace-pre"
@@ -48,7 +38,6 @@ function ContentArea() {
           >
             {displayText}
           </span>
-          {/* Hidden span to measure date/time width */}
           {dateTimeText && (
             <span
               ref={dateTimeRef}
@@ -58,7 +47,6 @@ function ContentArea() {
               {dateTimeText}
             </span>
           )}
-          {/* Input field */}
           <input
             type="text"
             value={pageName}
@@ -70,7 +58,6 @@ function ContentArea() {
             placeholder="Untitled"
             style={{ width: `${Math.max(finalUnderlineWidth || 200, 200)}px` }}
           />
-          {/* Underline that matches text width */}
           <div
             className="border-b border-neutral-300 absolute bottom-0"
             style={{ width: `${Math.max(finalUnderlineWidth || 200, 200)}px` }}
@@ -89,7 +76,6 @@ function ContentArea() {
           className="w-full h-full outline-none p-4 text-neutral-900 dark:text-neutral-100"
           style={{ minHeight: "200px" }}
         >
-          {/* Writing space */}
         </div>
       </div>
     </div>

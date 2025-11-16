@@ -66,7 +66,6 @@ export function SidebarDemo2({children}:Readonly<{children:React.ReactNode}>) {
   };
 
   useEffect(() => {
-    // Set date and time once when page is created
     const now = new Date();
     const dateOptions: Intl.DateTimeFormatOptions = { 
       weekday: 'long', 
@@ -89,7 +88,6 @@ export function SidebarDemo2({children}:Readonly<{children:React.ReactNode}>) {
       <Sidebar open={true} setOpen={() => {}} animate={false} width="200px">
         <SidebarBody className="justify-between gap-10" style={{ backgroundColor: '#BDBDBD' }}>
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
-            {/* Add Page Button and Filter */}
             <div className="flex items-center gap-2 mb-4 justify-between" >
               <button
                 onClick={addNewPage}
@@ -103,7 +101,6 @@ export function SidebarDemo2({children}:Readonly<{children:React.ReactNode}>) {
               </button>
             </div>
 
-            {/* Current Page Name */}
             <div className="mb-2">
               <div className="px-3 py-2 rounded-md bg-neutral-200 dark:bg-neutral-700">
                 <span className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
@@ -112,7 +109,6 @@ export function SidebarDemo2({children}:Readonly<{children:React.ReactNode}>) {
               </div>
             </div>
 
-            {/* Pages List */}
             <div className="flex flex-col gap-1">
               {pages.map((page) => (
                 <button
